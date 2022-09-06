@@ -28,8 +28,8 @@ contract CoinFlip {
 		bool winner
 	);
     
-    constructor() public {
-        owner = msg.sender;
+    constructor () {
+        owner = payable(msg.sender);
     }
 
     modifier onlyOwner() {
@@ -48,8 +48,8 @@ contract CoinFlip {
 			if ((block.timestamp % 2) == 0) {
 				
 				if (address(this).balance < (msg.value * ((100 + payPercentage) / 100))) {
-					// No tenemos suficientes fondos para pagar el premio, así que transferimos todo lo que tenemos
-					msg.sender.transfer(address(this).balance);
+					// We don't have enough funds to pay the prize, so we transfer everything we have
+					payable(msg.sender).transfer(address(this).balance);
 					emit Status('Congratulations, you win! Sorry, we didn\'t have enought money, we will deposit everything we have!', msg.sender, msg.value, true);
 					
 					newGame = Game({
@@ -65,7 +65,7 @@ contract CoinFlip {
 				} else {
 					uint _prize = msg.value * (100 + payPercentage) / 100;
 					emit Status('Congratulations, you win!', msg.sender, _prize, true);
-					msg.sender.transfer(_prize);
+					payable(msg.sender).transfer(_prize);
 					
 					newGame = Game({
 						addr: msg.sender,
