@@ -1,0 +1,30 @@
+# tapy Payment App Backend
+>Nodejs backend for payment app.
+
+
+## Description
+FinTech backend written in NodeJS, MongoDB and Express to accept payment from Flutter application
+This backend utilizes the Maplerad third party payment gateway API's :
+- Maplerad APIs are designed to be the best way to embed financial services into your product and create new revenue channels.
+- Maplerad's Transfers API empowers your business to make transfers to different financial institutions and payment methods via a single call.
+- Maplerad Bill payment empowers businesses to instantly provide bill payment services like Airtime purchases to their end users.
+- Maplerad's Issuing is a powerful modern card issuing infrastructure and you can instantly issue virtual and physical cards to a customer in different currencies
+
+It enables two main different flows or implementations:
+1. Accept payments from users.
+2. Admins manage and control various services.
+ 
+
+
+## Technologies
+* Technologies used:
+  * `Node` 16.1.0 - provides the backend environment for this application
+  * `Moongoose` 6.9.1 - Mongoose schemas to model the application data
+  * `Express` 4.18.2 - middleware is used to handle requests, routes
+
+--------------------------------
+
+### Steps to run server
+ #### 1. Setup MongoDB
+ - Download and Install it from [mongodb.com](https://www.mongodb.com/try/download/community)
+ 
